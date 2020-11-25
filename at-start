@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+if [ -f "log_file.log" ]; then
+  DATE=$(date -r log_file.log "+%Y%m%d")
+  mkdir archive/$DATE
+  mv log* archive/$DATE
+fi
+
+screen -dm python3 ws-test.py
